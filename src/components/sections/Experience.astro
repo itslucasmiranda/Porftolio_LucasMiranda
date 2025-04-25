@@ -1,0 +1,83 @@
+---
+import Section from '../ui/Section.astro';
+import Card from '../ui/Card.astro';
+
+// Get the company logos
+interface Experience {
+  company: string;
+  logo: string;
+  position: string;
+  period: string;
+  description: string;
+}
+
+const experiences: Experience[] = [
+{
+    company: 'AlphaKar',
+    logo: '/assets/svgs/AlphaKar.jpeg', 
+    position: 'Lider de Retenção e Dev Back-End de Suporte',
+    period: 'Mar 2025 - Atual',
+    description: 'Atuei na AlphaKar (Lifekar) como líder do setor de retenção de clientes na área de proteção veicular, sendo responsável por estratégias de fidelização, negociação ativa e redução de churn. Além disso, dei suporte direto no desenvolvimento de sistemas internos e na criação de planilhas automatizadas para otimizar processos e facilitar análises operacionais. Também colaborei com o sistema 8N8, contribuindo com insights e melhorias voltadas à eficiência dos sistemas. Essa atuação reforçou minha habilidade de conectar tecnologia e negócio com foco em resultados.'
+  },
+  {
+    company: 'PlanBTech',
+    logo: '/assets/svgs/PlanBTech.jpeg',
+    position: 'Desenvolvedor Back-End Jr. em Go (Golang)',
+    period: 'Jan 2025 - Atual',
+    description: 'Atuei na PlanBTech como desenvolvedor backend em Go, contribuindo para o desenvolvimento de microserviços e aprimoramento da infraestrutura da empresa. Fui responsável por implementar soluções escaláveis e eficientes, além de ser o primeiro a criar a documentação de serviços utilizando Swagger, facilitando a integração e compreensão das APIs. Minha experiência incluiu o uso de tecnologias como Go, Gin, GoORM e outras ferramentas de desenvolvimento para garantir a alta performance e segurança dos sistemas.'
+  },
+  {
+    company: 'Prudential Do Brasil',
+    logo: '/assets/svgs/Prudential.jpeg',
+    position: 'Analista de Suporte Técnico',
+    period: 'Ago 2023 - Nov 2024',
+    description: 'Atuei prestando suporte técnico de alto nível a usuários internos, solucionando problemas relacionados a hardware, software e conectividade de rede. Realizei o gerenciamento de contas e permissões utilizando Active Directory e ferramentas de IAM. Também fui responsável pela instalação, configuração e manutenção de sistemas operacionais (Windows e Linux), assegurando a integridade e segurança do ambiente. Contribuí para a documentação técnica e padronização de processos de suporte, otimizando o tempo de resposta e a qualidade do atendimento.'
+  },
+  {
+    company: 'AlgarTech',
+    logo: '/assets/svgs/AlgarTech.jpeg',
+    position: 'Analista de Suporte Técnico',
+    period: 'Ago 2023 - Nov 2024',
+    description: 'Fui responsável pelo diagnóstico e registro de incidentes em hardware, software e redes, utilizando a plataforma ServiceNow para monitoramento e análise de chamados. Realizei a configuração, administração e manutenção de servidores e dispositivos de rede como switches CISCO, roteadores, VPNs e firewalls. Atuei na implementação de políticas de segurança da informação, além de executar rotinas de backup. Colaborei com as equipes de desenvolvimento e infraestrutura, contribuindo para a otimização de processos e melhorias contínuas no ambiente de TI.'
+  },
+  {
+    company: '3 Corações',
+    logo: '/assets/svgs/3Coracoes.jpeg',
+    position: 'Jovem Aprendiz de Análise de Dados',
+    period: 'Mar 2023 - Mar 2024',
+    description: 'Atuei na criação e manutenção de planilhas avançadas em Excel voltadas à análise financeira, controle de indicadores e geração de relatórios estratégicos. Utilizei fórmulas complexas (PROCV, ÍNDICE, CORRESP, SOMASES), tabelas dinâmicas e gráficos interativos para manipulação de grandes volumes de dados. Dei suporte na extração e organização de informações a partir do sistema SAP, transformando dados brutos em insights acionáveis para a tomada de decisões. Essa experiência reforçou minha capacidade analítica e minha habilidade em estruturar soluções automatizadas baseadas em dados.'
+  },
+  {
+    company: 'Ministério Público do Estado da Bahia',
+    logo: '/assets/svgs/MPBA.jpeg',
+    position: 'Estagiário Administrativo',
+    period: 'Nov 2021 - Mai 2022',
+    description: 'Atuei na digitalização e organização de arquivos físicos, convertendo documentos judiciais e administrativos para formatos digitais e armazenando-os em sistemas específicos. Fui responsável por oferecer suporte técnico a usuários internos, solucionando problemas relacionados a hardware e software. Também participei do monitoramento de redes e servidores, além da instalação e configuração de equipamentos de TI. Colaborei com atividades de digitação, arquivamento processual e acompanhamento de julgamentos, garantindo a integridade e acessibilidade das informações.'
+  }
+];
+---
+
+<Section id="experience" title="Experiência Profissional" subtitle="Onde deixei minha sanidade em troca de tickets e deploys urgentes. ">
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {
+      experiences.map(({ company, logo, position, period, description }) => (
+        <Card hover={true} class="h-full">
+          <div class="p-6 flex flex-col h-full">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden flex items-center justify-center mr-4">
+                <img src={logo} alt={company} class="w-10 h-10 object-contain" />
+              </div>
+              <div>
+                <h3 class="font-bold text-xl">{company}</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">{period}</p>
+              </div>
+            </div>
+            
+            <h4 class="text-lg font-medium mb-2 text-primary">{position}</h4>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mt-auto">{description}</p>
+          </div>
+        </Card>
+      ))
+    }
+  </div>
+</Section> 
