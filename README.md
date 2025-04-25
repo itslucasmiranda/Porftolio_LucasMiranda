@@ -1,6 +1,6 @@
 # Lucas Miranda | Software Engineer Portfolio
 
-![Portfolio Theme](public/assets/theme-new.jpg)  
+![Portfolio Theme](public/assets/theme.jpg)  
 
 ## 📋 Overview
 
